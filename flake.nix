@@ -25,13 +25,7 @@
           version = fullVersion;
           src = ./.;
 
-          vendorHash = "";
-
-          nativeBuildInputs = [ pkgs.makeWrapper ];
-
-          postFixup = ''
-            wrapProgram $out/bin/tunebook-lib --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.ffmpeg pkgs.imagemagick ]}
-          '';
+          vendorHash = null;
         };
       in
       {
