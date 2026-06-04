@@ -24,6 +24,12 @@
           pname = "tunebook-bridge";
           version = fullVersion;
           src = ./.;
+          subPackages = ["cmd/tunebook-bridge"];
+
+          ldflags = [
+            "-X github.com/nanoteck137/tunebook-bridge.Version=${version}"
+            "-X github.com/nanoteck137/tunebook-bridge.Commit=${self.dirtyRev or self.rev or "no-commit"}"
+          ];
 
           vendorHash = null;
         };
